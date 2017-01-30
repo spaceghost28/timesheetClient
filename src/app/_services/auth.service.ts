@@ -10,17 +10,15 @@ export class AuthService {
 
   constructor(private http: Http) { }
 
-  login(username: string, password: string) {
-    let body = JSON.stringify({username, password});
-    this.http.post('url/login', body, {headers: this.headers}).toPromise()
+  login(email: string, password: string): Promise<any> {
+    let body = JSON.stringify({email, password});
+    return this.http.post('http://localhost:3001/login', body, { headers: this.headers })
+      .toPromise()
       .then(response => {
-        console.log('received response of some sort');
-        localStorage.setItem('id_token', response.json().id_token)
-        return response.json().user;
+        localStorage.setItem('AuthToken', response.json().token)
       })
       .catch(error => {
-        console.log(error.text());
-        return Promise.reject(error.message());
+        console.log('error: ', error.text());
       });
   }
 
