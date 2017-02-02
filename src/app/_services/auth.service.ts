@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { environment } from '../../environments/environment';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -12,7 +13,8 @@ export class AuthService {
 
   login(email: string, password: string): Promise<any> {
     let body = JSON.stringify({email, password});
-    return this.http.post('http://localhost:3001/login', body, { headers: this.headers })
+    let loginUrl = environment.users_url + '/login';
+    return this.http.post(loginUrl, body, { headers: this.headers })
       .toPromise()
       .then(response => {
         localStorage.setItem('AuthToken', response.json().token);
@@ -21,6 +23,4 @@ export class AuthService {
         console.log('error: ', error.text());
       });
   }
-
-
 }

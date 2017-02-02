@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  users_url: 'https://user-service-5555.herokuapp.com'
 };
