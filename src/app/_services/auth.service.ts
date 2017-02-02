@@ -15,7 +15,7 @@ export class AuthService {
     return this.http.post('http://localhost:3001/login', body, { headers: this.headers })
       .toPromise()
       .then(response => {
-        localStorage.setItem('AuthToken', response.json().token)
+        localStorage.setItem('AuthToken', response.json().token);
       })
       .catch(error => {
         console.log('error: ', error.text());
