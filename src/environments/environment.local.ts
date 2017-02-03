@@ -1,4 +1,4 @@
-//if we want to run all services locally
+// if we want to run all services locally
 
 export const environment = {
   production: false,
