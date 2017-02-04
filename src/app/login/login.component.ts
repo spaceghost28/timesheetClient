@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+    public showErrorMessage = false;
+
     constructor(private authService: AuthService,
         private router: Router) { }
 
@@ -21,8 +23,8 @@ export class LoginComponent implements OnInit {
             .then(() => {
                 this.router.navigate(['']);
             })
-            .catch(() => {
-                console.log('error in login component');
+            .catch((err) => {;
+                this.showErrorMessage = true;
             });
     }
 

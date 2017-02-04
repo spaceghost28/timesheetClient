@@ -8,7 +8,7 @@ import { User } from '../_models/user';
     styleUrls: ['./home-component.component.css']
 })
 export class HomeComponentComponent implements OnInit {
-    private user: User;
+    public user: User;
 
     constructor(private authService: AuthService) { }
 
