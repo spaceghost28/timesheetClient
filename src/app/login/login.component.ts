@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
         event.preventDefault();
         this.authService.login(username, password)
             .then(() => {
-                this.router.navigate(['/home']);
+                this.router.navigate(['']);
             })
             .catch(() => {
                 console.log('error in login component');

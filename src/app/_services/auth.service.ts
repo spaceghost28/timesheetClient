@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { environment } from '../../environments/environment';
+import { User } from '../_models/user';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -8,6 +9,8 @@ import 'rxjs/add/operator/toPromise';
 export class AuthService {
 
     private headers = new Headers({ 'Content-Type': 'application/json' });
+    private loggedIn = false;
+    private loggedInUser: User;
 
     constructor(private http: Http) { }
 
@@ -18,13 +21,25 @@ export class AuthService {
             .toPromise()
             .then(response => {
                 localStorage.setItem('AuthToken', response.json().token);
+                this.loggedIn = true;
+                this.loggedInUser = { email: response.json().email };
             })
             .catch(error => {
                 console.log('error: ', error.text());
             });
     }
 
+    logout() {
+        localStorage.removeItem('AuthToken');
+        this.loggedIn = false;
+        this.loggedInUser = null;
+    }
+
+    getUser() {
+      return this.loggedInUser;
+    }
+
     public isLoggedIn(): boolean {
-        return localStorage.getItem('AuthToken') != null;
+        return this.loggedIn;
     }
 }
