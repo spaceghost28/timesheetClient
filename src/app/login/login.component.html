@@ -5,13 +5,13 @@
       <label for="username">Email</label>
       <input type="text" #username class="form-control"
         id="username" placeholder="email" (keypress)="keyPressed()">
-      </div>
+    </div>
     <div class="form-group" [class.has-error]="showErrorMessage">
       <label for="password">Password</label>
       <input type="password" #password class="form-control"
         id="password" placeholder="password" (keypress)="keyPressed()">
     </div>
     <button type="submit" class="btn btn-default">Login</button>
-    <!-- <a routerLink="/register" class="btn">Register</a> -->
+    <a routerLink="/register" class="btn">Register</a>
   </form>
 </div>

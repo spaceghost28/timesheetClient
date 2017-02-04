@@ -1,0 +1,35 @@
+<div class="login jumbotron center-block">
+  <h1>Register</h1>
+  <form role="form" (submit)="register()">
+    <div class="form-group">
+
+      <label for="username">Email</label>
+      <input type="text" class="form-control"
+        id="email" placeholder="email" [(ngModel)]="newUser.email"
+        name="email">
+
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control"
+        id="firstName" placeholder="Frankie"
+        [(ngModel)]="newUser.firstName" name="firstName">
+
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control"
+        id="lastName" placeholder="Muniz"
+        [(ngModel)]="newUser.lastName" name="lastName">
+
+      <label for="password">Password</label>
+      <input type="password" #password class="form-control"
+        id="password" placeholder="password"
+        [(ngModel)]="newUser.password" name="password">
+
+      <label for="passwordAgain">Verify Password</label>
+      <input type="password" #passwordAgain class="form-control"
+        id="passwordAgain" placeholder="verify password"
+        [(ngModel)]="passwordVerification" name="passwordAgain">
+
+      <button type="submit" class="btn btn-default">Register</button>
+
+    </div>
+  </form>
+</div>

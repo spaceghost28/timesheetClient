@@ -36,6 +36,22 @@ export class AuthService {
         this.loggedInUser = null;
     }
 
+    register(user: User) {
+      let body = JSON.stringify({ user });
+      let registerUrl = environment.users_url + '/register';
+      return this.http.post(registerUrl, body, { headers: this.headers })
+          .toPromise()
+          .then(response => {
+              localStorage.setItem('AuthToken', response.json().token);
+              this.loggedIn = true;
+              this.loggedInUser = { email: response.json().email };
+          })
+          .catch(error => {
+              console.log('error: ', error.text());
+              throw error;
+          });
+    }
+
     getUser() {
       return this.loggedInUser;
     }

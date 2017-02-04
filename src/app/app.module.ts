@@ -11,12 +11,14 @@ import { LoginComponent } from './login/login.component';
 
 import { AuthService } from './_services/auth.service';
 import { AuthGuard } from './_guards/auth-guard.service';
+import { RegisterComponent } from './login/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponentComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

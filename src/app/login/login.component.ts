@@ -23,8 +23,7 @@ export class LoginComponent implements OnInit {
             .then(() => {
                 this.router.navigate(['']);
             })
-            .catch((err) => {
-                ;
+            .catch(() => {
                 this.showErrorMessage = true;
             });
     }
