@@ -3,4 +3,11 @@
   <p>
     hello someone with the email: {{user.email}}
   </p>
+
+  <ul>
+      <li *ngFor="let project of projects">
+          <span>Project name: {{project.name}}</span>
+      </li>
+  </ul>
+
 </div>

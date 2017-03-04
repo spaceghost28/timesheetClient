@@ -4,6 +4,7 @@
 // The list of which env maps to which file can be found in `angular-cli.json`.
 
 export const environment = {
-  production: false,
-  users_url: 'https://user-service-5555.herokuapp.com'
+    production: false,
+    users_url: 'https://user-service-5555.herokuapp.com',
+    time_url: 'https://time-tracking-service-5555.herokuapp.com'
 };

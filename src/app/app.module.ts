@@ -9,24 +9,29 @@ import { AppComponent } from './app.component';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { LoginComponent } from './login/login.component';
 
+import { ProjectService } from './_services/project.service';
 import { AuthService } from './_services/auth.service';
 import { AuthGuard } from './_guards/auth-guard.service';
 import { RegisterComponent } from './login/register/register.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponentComponent,
-    LoginComponent,
-    RegisterComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule
-  ],
-  providers: [AuthService, AuthGuard],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponentComponent,
+        LoginComponent,
+        RegisterComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule
+    ],
+    providers: [
+        AuthService,
+        AuthGuard,
+        ProjectService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
