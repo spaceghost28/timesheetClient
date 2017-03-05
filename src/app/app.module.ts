@@ -10,6 +10,7 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 import { LoginComponent } from './login/login.component';
 
 import { ProjectService } from './_services/project.service';
+import { TimeService } from './_services/time.service';
 import { AuthService } from './_services/auth.service';
 import { AuthGuard } from './_guards/auth-guard.service';
 import { RegisterComponent } from './login/register/register.component';
@@ -30,7 +31,8 @@ import { RegisterComponent } from './login/register/register.component';
     providers: [
         AuthService,
         AuthGuard,
-        ProjectService
+        ProjectService,
+        TimeService
     ],
     bootstrap: [AppComponent]
 })
